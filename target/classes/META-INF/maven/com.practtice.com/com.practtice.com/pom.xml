@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.practtice.com</groupId>
+	<artifactId>com.practtice.com</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>4.30.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>7.21.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>7.21.1</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+	    <plugins>
+	        <!-- Maven Surefire Plugin (for Running Tests) -->
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-surefire-plugin</artifactId>
+	            <version>3.0.0-M5</version>
+	            <configuration>
+	                <testFailureIgnore>true</testFailureIgnore> <!-- Ensures Jenkins continues even if tests fail -->
+	                <includes>
+	                    <include>**/TestRunner.java</include> <!-- Adjust this based on your test runner -->
+	                </includes>
+	            </configuration>
+	        </plugin>
+	
+	        <!-- Cucumber Reporting Plugin -->
+	        <plugin>
+	            <groupId>net.masterthought</groupId>
+	            <artifactId>maven-cucumber-reporting</artifactId>
+	            <version>5.0.0</version>
+	            <executions>
+	                <execution>
+	                    <id>report</id>
+	                    <phase>verify</phase>
+	                    <goals>
+	                        <goal>generate</goal>
+	                    </goals>
+	                    <configuration>
+	                        <projectName>Cucumber Test Report</projectName>
+	                        <outputDirectory>${project.build.directory}/cucumber-reports</outputDirectory>
+	                        <jsonFiles>${project.build.directory}/cucumber-reports/cucumber.json</jsonFiles>
+	                    </configuration>
+	                </execution>
+	            </executions>
+	        </plugin>
+	    </plugins>
+	</build>
+
+</project>
