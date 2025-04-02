@@ -1,7 +1,0 @@
--------------------------------------------------------------------------------
-Test set: testRunner.TestRunner
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.389 s <<< FAILURE! - in testRunner.TestRunner
-testRunner.TestRunner  Time elapsed: 2.387 s  <<< ERROR!
-io.cucumber.core.exception.CompositeCucumberException: There were 2 exceptions. The details are in the stacktrace below.
-
